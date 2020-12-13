@@ -7,13 +7,9 @@ Originally developed by zeroeightysix, I (yitzy299) have continued updating the 
 The original code for Server Simplified can be found at https://github.com/zeroeightysix/server-simplified
 
 ## Commands
-`/feed [<target>]` Restores players' health. Will target yourself if no target is specified.   
-`/heal [<target>]` Restore players' hunger. Will target yourself if no target is specified.  
 `/mute <target> [<time>]` Mutes players. See [this section](#mute-time) for the formatting of `time`  
 `/unmute <target>` Unmutes players.  
-`/seekinv <target>` Opens the specified player's inventory.  
 `/staffchat [<message>]` Toggle, or send a message to, staff chat. See [staff chat](#staff-chat)  
-`/vanish [<target>]` Vanishes or appears players. Will target yourself if no target is specified.  
 `/permission <target> [add|remove] [<permission>]` Lists, adds and removes permissions from players. See [permissions](#permissions)
 
 ## Mute time
@@ -37,7 +33,7 @@ While in staff chat mode, all messages sent are sent to staff chat.
 Using `/staffchat` with arguments (e.g. `/staffchat Hello!`) will not toggle your staff chat mode, but send your message straight to staff chat.
 
 ## Permissions
-Every command has a permission bound to it. For all commands this is just the name of the command (e.g. `/heal`: `heal`)
+Every command has a permission bound to it. For all commands this is just the name of the command (e.g. `/kick`: `kick`)
 
 For staffchat, the `staffchat.view` permission will allow a player to view, but not send to [staff chat](#staff-chat).  
 Add the `kick` permission to allow a player to use vanilla's `kick` command  
@@ -45,5 +41,5 @@ Add the `ban` permission to allow a player to use vanilla's `ban` command
 
 ### Examples of `/permission`
 List permissions of Dinnerbone: `/permission Dinnerbone`  
-Add `heal` to Notch: `/permission Notch add heal`  
-Remove `feed` from jeb_: `/permission jeb_ remove feed`  
+Add `mute` to Notch: `/permission Notch add mute`  
+Remove `staffchat` from jeb_: `/permission jeb_ remove staffchat`  

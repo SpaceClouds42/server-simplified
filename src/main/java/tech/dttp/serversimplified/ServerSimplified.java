@@ -5,7 +5,6 @@ import tech.dttp.serversimplified.commands.PermissionCommand;
 import tech.dttp.serversimplified.commands.PlayerActionCommand;
 import tech.dttp.serversimplified.commands.ServerMuteCommand;
 import tech.dttp.serversimplified.commands.StaffChatCommand;
-import tech.dttp.serversimplified.commands.VanishCommand;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.command.v1.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
@@ -23,7 +22,6 @@ public class ServerSimplified implements ModInitializer {
         CommandRegistrationCallback.EVENT.register((dispatcher, dedicated) -> {
             MuteCommand.register(dispatcher);
             PermissionCommand.register(dispatcher);
-            PlayerActionCommand.register(dispatcher, VanishCommand.class);
             ServerMuteCommand.register(dispatcher);
             StaffChatCommand.register(dispatcher);
         });
@@ -40,7 +38,6 @@ public class ServerSimplified implements ModInitializer {
             System.err.println("Server Simplified: couldn't save configuration!");
         }
 
-        VanishCommand.getVanished().forEach(entity -> entity.removeStatusEffect(StatusEffects.INVISIBILITY));
     }
 
     public static Configuration getConfiguration() {
