@@ -4,9 +4,7 @@
   "package": "tech.dttp.serversimplified.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "MixinServerPlayNetworkHandler",
-    "MixinBanCommand",
-    "MixinKickCommand"
+    "MixinServerPlayNetworkHandler"
   ],
   "injectors": {
     "defaultRequire": 1

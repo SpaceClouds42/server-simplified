@@ -36,10 +36,15 @@ public class PermissionCommand {
                                                                 .executes(context -> {
                                                                     String permission = MessageArgumentType.getMessage(context, "permission").asString();
                                                                     ServerPlayerEntity playerEntity = EntityArgumentType.getPlayers(context, "target").iterator().next();
-                                                                    ServerSimplified.getConfiguration().getPermissions().addPermission(playerEntity.getUuidAsString(), permission);
-                                                                    context.getSource().sendFeedback(new LiteralText("Added permission " + permission + " to ").append(playerEntity.getDisplayName()), false);
-                                                                    context.getSource().getMinecraftServer().getCommandManager().sendCommandTree(playerEntity);
-                                                                    return 1;
+                                                                    if (permission.toLowerCase().equals("staffchat") || permission.toLowerCase().equals("staffchat.view")) {
+                                                                        ServerSimplified.getConfiguration().getPermissions().addPermission(playerEntity.getUuidAsString(), permission);
+                                                                        context.getSource().sendFeedback(new LiteralText("Added permission " + permission + " to ").append(playerEntity.getDisplayName()), false);
+                                                                        context.getSource().getMinecraftServer().getCommandManager().sendCommandTree(playerEntity);
+                                                                        return 1;
+                                                                    } else {
+                                                                        context.getSource().sendError(new LiteralText("Permission you specified does not exist!"));
+                                                                        return 1;
+                                                                    }
                                                                 })
                                                 )
                                                 .executes(context -> {
